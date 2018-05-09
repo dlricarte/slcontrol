@@ -1,0 +1,75 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <h1>
+    Lista de Receitas
+  </h1>
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+  <div class="row">
+  	<div class="col-md-12">
+  		<div class="box box-primary">
+        <div class="box-header with-border">
+          <h3 class="box-title">Editar Receita</h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form role="form" action="/application/receitas/{$receita.IDRECEITA}" method="post">
+          <div class="box-body">
+            <div class="form-group">
+              <label for="desc_receita">Descrição</label>
+              <input type="text" class="form-control" id="desc_receita" name="desc_receita" value="{$receita.DESC_RECEITA}">
+            </div>
+            <div class="form-group">
+              <label for="origem">Origem</label>
+              <input type="text" class="form-control" id="origem" name="origem" value="{$receita.ORIGEM}">
+            </div>
+            <div class="form-group">
+              <label for="destino">Destino</label>
+              <input type="text" class="form-control" id="destino" name="destino" value="{$receita.DESTINO}">
+            </div>
+            <div class="form-group">
+              <label for="data_inicio">Data Início</label>
+              <input type="date" class="form-control" id="data_inicio" name="data_inicio" value="{$receita.DATA_INICIO}">
+            </div>
+            <div class="form-group">
+              <label for="data_fim">Data Fim</label>
+              <input type="date" class="form-control" id="data_fim" name="data_fim" value="{$receita.DATA_FIM}">
+            </div>
+             <div class="form-group">
+              <label for="nota_fiscal">NF</label>
+              <input type="number" min="0" class="form-control" id="nota_fiscal" name="nota_fiscal" value="{$receita.NOTA_FISCAL}">
+            </div>
+            <div class="form-group">
+              <label for="valor">Valor</label>
+              <input type="double" class="form-control" id="valor" name="valor" value="{$receita.VALOR}">
+            </div>
+           <!--  <div class="form-group">
+              <label for="usuario">Usuário</label>
+              <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Informe o usuário">
+            </div> -->
+            <div class="form-group">
+              <label for="id_usuario">Usuário</label>
+              <select class="form-control" id="id_usuario" name="id_usuario">
+                {loop="$users"}
+                <option value="{$value.IDUSUARIO}">{$value.NOME}</option>
+                {/loop}
+              </select>
+            </div>
+          <!-- /.box-body -->
+          <div class="box-footer">
+            <button type="submit" class="btn btn-primary">Salvar</button>
+          </div>
+        </form>
+      </div>
+  	</div>
+  </div>
+
+</section>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->

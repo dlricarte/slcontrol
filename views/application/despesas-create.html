@@ -1,0 +1,82 @@
+Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <h1>
+    Lista de Despesas
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="/application"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li><a href="/application/despesas">Despesas</a></li>
+    <li class="active"><a href="/application/despesas/create">Cadastrar</a></li>
+  </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+  <div class="row">
+  	<div class="col-md-12">
+  		<div class="box box-success">
+        <div class="box-header with-border">
+          <h3 class="box-title">Nova Despesa</h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form role="form" action="/application/despesas/create" method="post">
+          <div class="box-body">
+            <div class="form-group">
+              <label for="nome">Descrição</label>
+              <input type="text" class="form-control" id="descricao" name="desc_despesa" placeholder="Informe uma descrição para a despesa">
+            </div>
+            <div class="form-group">
+              <label for="data_despesa">Data</label>
+              <input type="date" class="form-control" id="data_despesa" name="data_despesa">
+            </div>
+             <div class="form-group">
+              <label for="km">KM</label>
+              <input type="number" min="0" class="form-control" id="km" name="km" placeholder="Informe a Kilometragem">
+            </div>
+            <div class="form-group">
+              <label for="valor">Valor</label>
+              <input type="text" class="form-control" id="valor" name="valor" placeholder="Informe o valor da despesa">
+            </div>
+            <div class="form-group">
+              <label for="nota_fiscal">Nota Fiscal</label>
+              <input type="number" class="form-control" id="notafiscal" name="nota_fiscal" placeholder="Informe o numero da NF">
+            </div>
+            <!-- <div class="form-group">
+              <label for="nrphone">Telefone</label>
+              <input type="tel" class="form-control" id="nrphone" name="nrphone" placeholder="Digite o telefone">
+            </div> -->
+           
+            <div class="form-group">
+              <label for="id_usuario">Usuário</label>
+              <select class="form-control" id="id_usuario" name="id_usuario">
+                {loop="$users"}
+                <option value="{$value.IDUSUARIO}">{$value.NOME}</option>
+                {/loop}
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="id_conta">Conta</label>
+              <select class="form-control" id="id_conta" name="id_conta">
+                {loop="$contas"}
+                <option value="{$value.IDCONTA}">{$value.DESC_CONTA}</option>
+                {/loop}
+              </select>
+            </div>
+          </div>
+          <!-- /.box-body -->
+          <div class="box-footer">
+            <button type="submit" class="btn btn-success">Cadastrar</button>
+          </div>
+        </form>
+      </div>
+  	</div>
+  </div>
+
+</section>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper

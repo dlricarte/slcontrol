@@ -1,0 +1,77 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <h1>
+    Lista de Despesas
+  </h1>
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+  <div class="row">
+  	<div class="col-md-12">
+  		<div class="box box-primary">
+        <div class="box-header with-border">
+          <h3 class="box-title">Editar Despesa</h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form role="form" action="/application/despesas/{$despesa.IDDESPESA}" method="post">
+          <div class="box-body">
+            <div class="form-group">
+              <label for="nome">Descrição</label>
+              <input type="text" class="form-control" id="descricao" name="desc_despesa" value="{$despesa.DESC_DESPESA}">
+            </div>
+            <div class="form-group">
+              <label for="data_despesa">Data</label>
+              <input type="date" class="form-control" id="data_despesa" name="data_despesa" value="{$despesa.DATA_DESPESA}">
+            </div>
+             <div class="form-group">
+              <label for="km">KM</label>
+              <input type="number" min="0" class="form-control" id="km" name="km" value="{$despesa.KM}">
+            </div>
+            <div class="form-group">
+              <label for="valor">Valor</label>
+              <input type="text" class="form-control" id="valor" name="valor" value="{$despesa.VALOR}">
+            </div>
+            <div class="form-group">
+              <label for="nota_fiscal">Nota Fiscal</label>
+              <input type="number" class="form-control" id="notafiscal" name="nota_fiscal" value="{$despesa.NOTA_FISCAL}">
+            </div>
+            <!-- <div class="form-group">
+              <label for="nrphone">Telefone</label>
+              <input type="tel" class="form-control" id="nrphone" name="nrphone" placeholder="Digite o telefone">
+            </div> -->
+           
+            <div class="form-group">
+              <label for="id_usuario">Usuário</label>
+              <select class="form-control" id="id_usuario" name="id_usuario">
+                {loop="$users"}
+                <option value="{$value.IDUSUARIO}">{$value.NOME}</option>
+                {/loop}
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="id_conta">Conta</label>
+              <select class="form-control" id="id_conta" name="id_conta">
+                {loop="$contas"}
+                <option value="{$value.IDCONTA}">{$value.DESC_CONTA}</option>
+                {/loop}
+              </select>
+            </div>
+          </div>
+          <!-- /.box-body -->
+          <div class="box-footer">
+            <button type="submit" class="btn btn-primary">Salvar</button>
+          </div>
+        </form>
+      </div>
+  	</div>
+  </div>
+
+</section>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->

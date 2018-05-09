@@ -1,0 +1,69 @@
+Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <h1>
+    Lista de Receitas
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="/application"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li class="active"><a href="/application/receitas">Receitas</a></li>
+  </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+  <div class="row">
+  	<div class="col-md-12">
+  		<div class="box box-primary">
+            
+            <div class="box-header">
+              <a href="/application/receitas/create" class="btn btn-success">Cadastrar Receita</a>
+            </div>
+
+            <div class="box-body no-padding">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th style="width: 10px">#</th>
+                    <th style="width: 120px">Descrição</th>
+                    <th style="width: 120px">Origem</th>
+                    <th style="width: 60px">Destino</th>
+                    <th style="width: 60px">Data Íni</th>
+                    <th style="width: 100px">Data Fim</th>
+                    <th style="width: 60px">Valor</th>
+                    <th style="width: 200px">NF</th>
+                    <th style="width: 150px">Usuário</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {loop="$receitas"}
+                  <tr>
+                    <td>{$value.IDRECEITA}</td>
+                    <td>{$value.DESC_RECEITA}</td>
+                    <td>{$value.ORIGEM}</td>
+                    <td>{$value.DESTINO}</td>
+                    <td>{$value.DATA_INICIO}</td>
+                    <td>{$value.DATA_FIM}</td>
+                    <td>{$value.VALOR}</td>
+                    <td>{$value.NOTA_FISCAL}</td>
+                    <td>{$value.NOME}</td>
+                    <td>
+                      <a href="/application/receitas/{$value.IDRECEITA}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Editar</a>
+                      <a href="/application/receitas/{$value.IDRECEITA}/delete" onclick="return confirm('Deseja realmente excluir este registro?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
+                    </td>
+                  </tr>
+                  {/loop}
+                </tbody>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+  	</div>
+  </div>
+
+</section>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper
